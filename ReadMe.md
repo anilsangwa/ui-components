@@ -1,6 +1,3 @@
-Sure! Here’s a basic `README.md` for your package:
-
-```markdown
 # @anil-sangwa/ui-components
 
 A collection of reusable UI components for React.
@@ -39,7 +36,7 @@ export default App;
 
 ## Available Components
 
-### ComponentName
+### Input
 
 Description of what the component does.
 

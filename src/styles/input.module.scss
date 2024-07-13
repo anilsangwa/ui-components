@@ -1,50 +1,47 @@
 @import "scss/global.scss";
 
-//input.module.scss
+// input.module.scss
 .container {
-    min-height: 65px;
-  
-    .label {
-      cursor: pointer;
-      display: flex;
+  .label {
+    cursor: pointer;
+    display: flex;
+  }
+
+  .inputWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    @extend %common-container-styling;
+
+    input {
+      background-color: $color-background;
+      border: 1px solid $color-border;
+      border-radius: 5px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      color: $color-text;
+      padding: 10px 15px;
+      width: 100%;
+      height: auto;
+      min-height: unset;
+      -moz-appearance: none;
+      appearance: none;
+      -webkit-appearance: none;
+
+      &:focus-visible {
+        outline: none;
+      }
     }
-  
-    .inputWrapper {
-      display: flex;
-      align-items: center;
-      position: relative;
-      @extend %common-container-styling;
-  
-      input {
-        background-color: $color-background;
-        border: 1px solid $color-border;
-        border-radius: 5px;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
-        color: $color-text;
-        margin: 4px 0;
-        padding: 10px 15px;
-        width: 100%;
-        height: auto;
-        min-height: unset;
-        -moz-appearance: none;
-        appearance: none;
-        -webkit-appearance: none;
-  
-        &:focus-visible {
-          outline: none;
-        }
-      }
-  
-      .suffixIcon {
-        padding: 0 5px;
-        position: absolute;
-        right: 10px;
-      }
-  
-      .prefixIcon {
-        padding: 0 5px;
-      }
+
+    .suffixIcon {
+      padding: 0 5px;
+      position: absolute;
+      right: 10px;
+    }
+
+    .prefixIcon {
+      padding: 0 5px;
     }
   }
+}

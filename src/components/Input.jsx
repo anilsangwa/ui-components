@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import styles from "../styles/input.module.scss";
+import ErrorMessage from "./ErrorMessage";
 
 const Input = ({
-  id = null,
-  label = "",
-  labelClassName = "",
-  inputWrap = "",
-  inputClass = "",
-  errorClass = "",
-  parentClass = "",
-  prefixIcon = null,
-  suffixIcon = null,
-  iconContainerClass = "",
-  errors = [],
+  id,
+  label,
+  parentClass,
+  labelClassName,
+  inputWrap,
+  inputClass,
+  prefixIcon,
+  suffixIcon,
+  iconContainerClass,
+  errors,
+  errorClass,
   ...props
 }) => {
   const [isValid, setIsValid] = useState(null);
@@ -54,8 +56,43 @@ const Input = ({
           </div>
         )}
       </div>
+
+      <ErrorMessage errors={errors} errorClass={errorClass} />
     </div>
   );
+};
+
+Input.defaultProps = {
+  id: null,
+  label: "",
+  labelClassName: "",
+  inputWrap: "",
+  inputClass: "",
+  errorClass: "",
+  parentClass: "",
+  prefixIcon: null,
+  suffixIcon: null,
+  iconContainerClass: "",
+  errors: [],
+};
+
+Input.propTypes = {
+  id: PropTypes.string,
+  label: PropTypes.string,
+  labelClassName: PropTypes.string,
+  inputWrap: PropTypes.string,
+  inputClass: PropTypes.string,
+  errorClass: PropTypes.string,
+  parentClass: PropTypes.string,
+  prefixIcon: PropTypes.node,
+  suffixIcon: PropTypes.node,
+  iconContainerClass: PropTypes.string,
+  errors: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.string,
+  ]),
+  // Spread props are expected to be standard HTML input attributes
+  // and do not need to be explicitly declared in propTypes.
 };
 
 export default Input;

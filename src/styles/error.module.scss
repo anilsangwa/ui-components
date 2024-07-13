@@ -1,0 +1,8 @@
+@import "scss/global.scss";
+
+// error.module.scss
+
+.errorMessage {
+  @extend %error-message;
+  margin-top: 2px;
+}
