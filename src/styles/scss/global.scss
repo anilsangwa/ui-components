@@ -1,0 +1,33 @@
+@import "variables";
+@import "colors";
+
+// Placeholders
+%validation-styles {
+  &.valid {
+    border-color: $color-primary;
+    input {
+      border-color: $color-primary;
+    }
+  }
+
+  &.invalid {
+    border-color: $color-error;
+    input {
+      border-color: $color-error;
+    }
+  }
+}
+
+%common-container-styling {
+  box-sizing: border-box;
+  border-radius: 4px;
+  appearance: none;
+  @extend %validation-styles;
+}
+
+%error-message {
+  height: $error-height;
+  padding-right: 8px;
+  font-size: 11px;
+  color: $color-error;
+}
