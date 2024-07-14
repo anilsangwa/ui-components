@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "../styles/input.module.scss";
+import style from "../styles/error-message.module.scss";
 
 const ErrorMessage = ({ errors, showList, errorClass }) => {
   if (!errors || errors.length === 0) {
@@ -8,7 +8,7 @@ const ErrorMessage = ({ errors, showList, errorClass }) => {
   }
 
   return (
-    <div className={`${styles.errorMessage} ${errorClass}`}>
+    <div className={`${style.errorMessage} ${errorClass}`}>
       {typeof errors === "string" ? (
         errors
       ) : showList ? (
