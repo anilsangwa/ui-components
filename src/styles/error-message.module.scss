@@ -4,4 +4,14 @@
 
 .errorMessage {
   @extend %error-message;
+  ol,
+  ul {
+    margin: 0px;
+    padding: 0px;
+    li {
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
 }

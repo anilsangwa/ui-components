@@ -2,6 +2,7 @@
 
 // input.module.scss
 .container {
+  width: 210px;
   .label {
     cursor: pointer;
     display: flex;
@@ -14,24 +15,8 @@
     @extend %common-container-styling;
 
     input {
-      background-color: $color-background;
-      border: 1px solid $color-border;
-      border-radius: 5px;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 18px;
-      color: $color-text;
+      @extend %common-form-html-styling;
       padding: 10px 15px;
-      width: 100%;
-      height: auto;
-      min-height: unset;
-      -moz-appearance: none;
-      appearance: none;
-      -webkit-appearance: none;
-
-      &:focus-visible {
-        outline: none;
-      }
     }
 
     .suffixIcon {
