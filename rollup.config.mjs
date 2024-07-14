@@ -4,6 +4,20 @@ import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 import postcss from "rollup-plugin-postcss";
 import terser from "@rollup/plugin-terser";
+import path from "path";
+import crypto from "crypto";
+
+function generateScopedName(name, filename, css) {
+  const baseName = path
+    .basename(filename, ".module.scss")
+    .replace(/-module$/, "");
+  const hash = crypto
+    .createHash("md5")
+    .update(css)
+    .digest("base64")
+    .slice(0, 5);
+  return `${baseName}__${name}___${hash}`;
+}
 
 export default {
   input: "src/index.js", // Entry point of your application
@@ -20,7 +34,7 @@ export default {
     commonjs(), // Convert CommonJS modules to ES modules
     postcss({
       modules: {
-        generateScopedName: "[name]__[local]___[hash:base64:5]", // CSS modules naming pattern
+        generateScopedName: generateScopedName, // CSS modules naming pattern
       },
       inject: true, // Inject CSS into the bundle
       minimize: true, // Minify CSS

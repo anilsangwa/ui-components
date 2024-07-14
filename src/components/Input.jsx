@@ -14,6 +14,7 @@ const Input = ({
   suffixIcon,
   iconContainerClass,
   errors,
+  showList,
   errorClass,
   ...props
 }) => {
@@ -57,7 +58,11 @@ const Input = ({
         )}
       </div>
 
-      <ErrorMessage errors={errors} errorClass={errorClass} />
+      <ErrorMessage
+        errors={errors}
+        showList={showList}
+        errorClass={errorClass}
+      />
     </div>
   );
 };
@@ -65,25 +70,25 @@ const Input = ({
 Input.defaultProps = {
   id: null,
   label: "",
+  parentClass: "",
   labelClassName: "",
   inputWrap: "",
   inputClass: "",
-  errorClass: "",
-  parentClass: "",
   prefixIcon: null,
   suffixIcon: null,
   iconContainerClass: "",
   errors: [],
+  showList: false,
+  errorClass: "",
 };
 
 Input.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
+  parentClass: PropTypes.string,
   labelClassName: PropTypes.string,
   inputWrap: PropTypes.string,
   inputClass: PropTypes.string,
-  errorClass: PropTypes.string,
-  parentClass: PropTypes.string,
   prefixIcon: PropTypes.node,
   suffixIcon: PropTypes.node,
   iconContainerClass: PropTypes.string,
@@ -91,6 +96,8 @@ Input.propTypes = {
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.string,
   ]),
+  showList: PropTypes.bool,
+  errorClass: PropTypes.string,
   // Spread props are expected to be standard HTML input attributes
   // and do not need to be explicitly declared in propTypes.
 };
